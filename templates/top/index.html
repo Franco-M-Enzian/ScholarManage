@@ -1,1 +1,8 @@
 {% include "base.html" %}
+{% block title %}
+<div class="h1">トップ</div>
+{% endblock %}
+{% block content %}
+<a href="{% url 'accounts:signup' %}" class="btn btn-secondary">アカウント登録</a>
+{% endblock %}
+

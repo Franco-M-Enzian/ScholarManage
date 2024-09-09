@@ -1,0 +1,9 @@
+{% include "base.html" %}
+{% block title %}
+<div>{{ user.username }}のプロフィール</div>
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="h2">Welcome {{ user.username }}</div>
+{% endif %}
+{% endblock %}
