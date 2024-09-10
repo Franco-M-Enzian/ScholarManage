@@ -1,9 +1,14 @@
 {% include "base.html" %}
 {% block title %}
-<div>{{ user.username }}のプロフィール</div>
+<div class="h2">プロフィール</div>
 {% endblock %}
 {% block content %}
 {% if user.is_authenticated %}
+<div>{{ user.username }}のプロフィール</div>
 <div class="h2">Welcome {{ user.username }}</div>
 {% endif %}
+<form method="post" action="{% url 'accounts:logout' %}">
+    {% csrf_token %}
+    <button type="submit">ログアウト</button>
+</form>
 {% endblock %}
