@@ -8,6 +8,7 @@ from .forms import SignupForm
 class ProfileView(TemplateView):
     template_name = "accounts/profile.html"
 
+
 class SignupView(CreateView):
     form_class = SignupForm
     template_name = "accounts/signup.html"
