@@ -1,4 +1,3 @@
-from typing import Any
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login
 from django.views.generic import CreateView, TemplateView
