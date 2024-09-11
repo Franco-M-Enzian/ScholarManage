@@ -71,4 +71,4 @@ class Account(AbstractBaseUser, PermissionsMixin):
     objects = MyUserManager()
 
     def __str__(self):
-        return self.username + " : " + self.email
+        return f"{self.username} {self.email}"
