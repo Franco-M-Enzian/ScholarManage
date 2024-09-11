@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import TotalIncome, ExpenseIfNotAlone, ExpenseIfAlone
+from .models import Income, Expense
 
-admin.site.register(TotalIncome)
-admin.site.register(ExpenseIfNotAlone)
-admin.site.register(ExpenseIfAlone)
+admin.site.register(Income)
+admin.site.register(Expense)
