@@ -19,6 +19,7 @@
 <li>カテゴリー：{{ income.category }}</li>
 <li>収  入  額：{{ income.amount }}円</li>
 <a href="{% url 'finances:income_update' income.pk %}">編集</a>
+<a href="{% url 'finances:income_delete' income.pk %}">削除</a>
 <br>
 {% empty %}
 <li>まだ収入登録が1件もされていません。</li>
