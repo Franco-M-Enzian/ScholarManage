@@ -11,6 +11,6 @@ class SignupForm(UserCreationForm):
             "email",
             "birthday",
             "what_grade",
-            "live_alone_or_with_family",
+            "live_with_family",
         )
 

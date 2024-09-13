@@ -1,0 +1,28 @@
+{% include "base.html" %}
+{% block title %}
+<div class="h2">収入一覧</div>
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<div>{{ user.username }}の収入一覧</div>
+<div class="h2">Welcome {{ user.username }}</div>
+<br>
+<form method="post" action="{% url 'accounts:logout' %}">
+    {% csrf_token %}
+    <button type="submit">ログアウト</button>
+</form>
+{% endif %}
+<a href="{% url 'finances:income_add' %}" class="btn btn-secondary">収入登録</a>
+{% for income in incomes %}
+<li>{{ income.year }}年</li>
+<li>{{ income.month }}</li>
+<li>カテゴリー：{{ income.category }}</li>
+<li>収  入  額：{{ income.amount }}円</li>
+<a href="{% url 'finances:income_update' income.pk %}">編集</a>
+<a href="{% url 'finances:income_delete' income.pk %}">削除</a>
+<br>
+{% empty %}
+<li>まだ収入登録が1件もされていません。</li>
+{% endfor %}
+{% endblock %}
+
