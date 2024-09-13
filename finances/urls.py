@@ -10,6 +10,8 @@ urlpatterns = [
     # path('expense/list/', views.ExpenseListView.as_view(), name="expense_list"),
     path("income/add/", views.IncomeAddView.as_view(), name="income_add"),
     # path("expense/add/", views.ExpenseAddView.as_view(), name="expense_add"),
-    # path("income/delete/", views.IncomeDeleteView.as_view(), name="income_delete"),
-    # path("expense/delete/", views.ExpenseDeleteView.as_view(), name="expense_delete"),
+    path("Income/<int:pk>/update/", views.IncomeUpdateView.as_view(), name="income_update"),
+    # path("Expense/<int:pk>/update/", views.ExpenseUpdateView.as_view(), name="expense_update"),
+    # path("income/<int:pk>/delete/", views.IncomeDeleteView.as_view(), name="income_delete"),
+    # path("expense/<int:pk>/delete/", views.ExpenseDeleteView.as_view(), name="expense_delete"),
 ]

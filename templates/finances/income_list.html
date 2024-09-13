@@ -18,8 +18,10 @@
 <li>{{ income.month }}</li>
 <li>カテゴリー：{{ income.category }}</li>
 <li>収  入  額：{{ income.amount }}円</li>
+<a href="{% url 'finances:income_update' income.pk %}">編集</a>
 <br>
 {% empty %}
 <li>まだ収入登録が1件もされていません。</li>
 {% endfor %}
 {% endblock %}
+

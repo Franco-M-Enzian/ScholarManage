@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.conf import settings
 from .models import Income
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView
 
 
 class IncomeListView(LoginRequiredMixin, ListView):
@@ -22,3 +22,10 @@ class IncomeAddView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.account = self.request.user
         return super().form_valid(form)
+
+
+class IncomeUpdateView(LoginRequiredMixin, UpdateView):
+    model = Income
+    fields = ["year", "month", "category", "amount"]
+    template_name = "finances/income_update.html"
+    success_url = reverse_lazy(settings.LOGIN_REDIRECT_URL)
