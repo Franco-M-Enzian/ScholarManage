@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = "accounts.Account"
 
 LOGIN_URL = "accounts:login"
-LOGIN_REDIRECT_URL = "accounts:profile"
+LOGIN_REDIRECT_URL = "finances:income_list"
 LOGOUT_REDIRECT_URL = "accounts:login"
 
 MIDDLEWARE = [
