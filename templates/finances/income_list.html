@@ -12,6 +12,7 @@
     <button type="submit">ログアウト</button>
 </form>
 {% endif %}
+<a href="{% url 'finances:expense_list' %}" class="btn btn-secondary">支出一覧</a>
 <a href="{% url 'finances:income_add' %}" class="btn btn-secondary">収入登録</a>
 {% for income in incomes %}
 <li>{{ income.year }}年</li>

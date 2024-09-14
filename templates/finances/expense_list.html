@@ -1,0 +1,28 @@
+{% include "base.html" %}
+{% block title %}
+<div class="h2">支出一覧</div>
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<div>{{ user.username }}の支出一覧</div>
+<div class="h2">Welcome {{ user.username }}</div>
+<br>
+<form method="post" action="{% url 'accounts:logout' %}">
+    {% csrf_token %}
+    <button type="submit">ログアウト</button>
+</form>
+{% endif %}
+<a href="{% url 'finances:income_list' %}" class="btn btn-secondary">収入一覧</a>
+<a href="{% url 'finances:expense_add' %}" class="btn btn-secondary">支出登録</a>
+{% for expense in expenses %}
+<li>{{ expense.year }}年</li>
+<li>{{ expense.month }}</li>
+<li>カテゴリー：{{ expense.category }}</li>
+<li>収  入  額：{{ expense.amount }}円</li>
+<a href="{% url 'finances:expense_update' expense.pk %}">編集</a>
+<a href="{% url 'finances:expense_delete' expense.pk %}">削除</a>
+<br>
+{% empty %}
+<li>まだ収入登録が1件もされていません。</li>
+{% endfor %}
+{% endblock %}
