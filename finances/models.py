@@ -43,7 +43,7 @@ class Income(AbstractIncome):
 class Expense(AbstractIncome):
     CATEGORY = [
         ("学費", "学費"),
-        ("修学費)", "修学費"),
+        ("修学費", "修学費"),
         ("食費", "食費"),
         ("光熱水料通信費", "光熱水料通信費"),
         ("その他", "その他"),
