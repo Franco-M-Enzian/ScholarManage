@@ -12,3 +12,6 @@
     <button type="submit">ログアウト</button>
 </form>
 {% endblock %}
+<br>
+<a href="{% url 'finances:income_list' %}" class="btn btn-secondary">収入一覧に移動</a>
+<a href="{% url 'finances:expense_list' %}" class="btn btn-secondary">支出一覧に移動</a>

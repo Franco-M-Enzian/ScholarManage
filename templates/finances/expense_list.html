@@ -12,6 +12,7 @@
     <button type="submit">ログアウト</button>
 </form>
 {% endif %}
+<a href="{% url 'accounts:profile' user.username %}">プロフィール</a>
 <a href="{% url 'finances:income_list' %}" class="btn btn-secondary">収入一覧</a>
 <a href="{% url 'finances:expense_add' %}" class="btn btn-secondary">支出登録</a>
 {% for expense in expenses %}
