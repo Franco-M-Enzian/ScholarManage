@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+from .settings_local import *
 from decouple import config
 from dj_database_url import parse as dburl
 
@@ -25,13 +26,10 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['scholarmanage.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'scholarmanage.onrender.com']
 
 
 # Application definition
@@ -140,8 +138,8 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SUPERUSER_NAME = env("SUPERUSER_NAME")
-SUPERUSER_EMAIL = env("SUPERUSER_EMAIL")
-SUPERUSER_BIRTHDAY = env("SUPERUSER_BIRTHDAY")
-SUPERUSER_LIVE_WITH_FAMILY = env("SUPERUSER_LIVE_WITH_FAMILY")
-SUPERUSER_PASSWORD = env("SUPERUSER_PASSWORD")
+SUPERUSER_NAME = env("SUPERUSER_NAME", default="admin")
+SUPERUSER_EMAIL = env("SUPERUSER_EMAIL", default="admin@admin.com")
+SUPERUSER_BIRTHDAY = env("SUPERUSER_BIRTHDAY", default="2004-09-11")
+SUPERUSER_LIVE_WITH_FAMILY = env("SUPERUSER_LIVE_WITH_FAMILY", default="はい")
+SUPERUSER_PASSWORD = env("SUPERUSER_PASSWORD", default="password")
