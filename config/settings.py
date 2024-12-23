@@ -26,8 +26,8 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = False
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'scholarmanage.onrender.com']
 
