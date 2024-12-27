@@ -1,10 +1,11 @@
-{% include "base.html" %}
+{% extends 'base.html' %}
 {% block title %}
-<div class="h1">トップ</div>
-{% endblock %}
+トップ
+{% endblock title %}
+{% block header %}
+トップ
+{% endblock header %}
 {% block content %}
 <a href="{% url 'accounts:signup' %}" class="btn btn-secondary">アカウント登録</a>
-<br>
 <a href="{% url 'accounts:login' %}" class="btn btn-secondary">ログイン</a>
-{% endblock %}
-
+{% endblock content %}
