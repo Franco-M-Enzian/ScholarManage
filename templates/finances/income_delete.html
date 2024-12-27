@@ -1,3 +1,4 @@
+{% include "base.html" %}
 <h1>収入を削除</h1>
 <form method="post">{% csrf_token %}
     <p>本当にこの収入を削除しますか？"{{ object }}"</p>
