@@ -1,6 +1,11 @@
-{% include "base.html" %}
-<h2>収入を編集</h2>
-
+{% extends 'base.html' %}
+{% block title %}
+収入を編集
+{% endblock title %}
+{% block header %}
+収入を編集
+{% endblock header %}
+{% block content %}
 <div>
   <br>
   <form method="POST">
@@ -18,3 +23,4 @@
     </div>
   </form>
 </div>
+{% endblock content %}

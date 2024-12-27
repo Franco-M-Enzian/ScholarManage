@@ -1,17 +1,21 @@
-{% include "base.html" %}
+{% extends 'base.html' %}
 {% block title %}
-<h2>プロフィール</h2>
-{% endblock %}
+プロフィール
+{% endblock title %}
+{% block header %}
+プロフィール
+{% endblock header %}
 {% block content %}
 {% if user.is_authenticated %}
-<div>{{ user.username }}のプロフィール</div>
-<div class="h2">Welcome {{ user.username }}</div>
+<br>
+<h4>{{ user.username }}</h4>
+<br>
 {% endif %}
 <form method="post" action="{% url 'accounts:logout' %}">
     {% csrf_token %}
     <button type="submit">ログアウト</button>
 </form>
-{% endblock %}
 <br>
 <a href="{% url 'finances:income_list' %}" class="btn btn-secondary">収入一覧に移動</a>
 <a href="{% url 'finances:expense_list' %}" class="btn btn-secondary">支出一覧に移動</a>
+{% endblock content %}

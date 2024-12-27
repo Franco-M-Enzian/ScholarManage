@@ -1,8 +1,17 @@
-{% include "base.html" %}
-<h2>支出を削除</h2>
+{% extends "base.html" %}
+{% block title %}
+支出を削除
+{% endblock title %}
+{% block header %}
+支出を削除
+{% endblock header %}
+{% block content %}
 <form method="post">{% csrf_token %}
-    <p>本当にこの支出を削除しますか？"{{ object }}"</p>
+    <div class="alert alert-danger" role="alert">
+        本当にこの支出を削除しますか？：{{ object }}
+      </div>
     {{ form }}
     <input type="submit" value="削除する">
 </form>
 <a href="{% url 'finances:expense_list' %}" class="btn btn-secondary">戻る</a>
+{% endblock content %}

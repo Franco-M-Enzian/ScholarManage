@@ -1,4 +1,11 @@
-{% include "base.html" %}
+{% extends "base.html" %}
+{% block title %}
+支出を編集
+{% endblock title %}
+{% block header %}
+支出を編集
+{% endblock header %}
+{% block content %}
 <h2>支出を編集</h2>
 
 <div>
@@ -18,3 +25,4 @@
     </div>
   </form>
 </div>
+{% endblock content %}

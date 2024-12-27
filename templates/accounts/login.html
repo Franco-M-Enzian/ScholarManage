@@ -1,8 +1,10 @@
-{% include "base.html" %}
+{% extends 'base.html' %}
 {% block title %}
-<h2>ログイン</h2>
-{% endblock %}
-
+ログイン
+{% endblock title %}
+{% block header %}
+ログイン
+{% endblock header %}
 {% block content %}
 <div>
   <br>
@@ -21,4 +23,4 @@
     </div>
   </form>
 </div>
-{% endblock %}
+{% endblock content %}
