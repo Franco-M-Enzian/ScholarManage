@@ -9,11 +9,20 @@
 {% if user.is_authenticated %}
 <br>
 <h4>{{ user.username }}</h4>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">メールアドレス: {{ user.email }}</li>
+      <li class="list-group-item">誕生日: {{ user.birthday }}</li>
+      <li class="list-group-item">学部: {{ user.what_grade }}</li>
+      <li class="list-group-item">家族と同居: {{ user.live_with_family }}</li>
+      <li class="list-group-item">最終ログイン日時: {{ user.last_login }}</li>
+    </ul>
+  </div>
 <br>
 {% endif %}
 <form method="post" action="{% url 'accounts:logout' %}">
     {% csrf_token %}
-    <button type="submit">ログアウト</button>
+    <button type="submit" class="btn btn-danger">ログアウト</button>
 </form>
 <br>
 <a href="{% url 'finances:income_list' %}" class="btn btn-secondary">収入一覧に移動</a>
