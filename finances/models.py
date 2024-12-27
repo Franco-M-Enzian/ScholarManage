@@ -37,7 +37,7 @@ class Income(AbstractIncome):
     category = models.CharField("カテゴリーを選択", max_length=14, choices=CATEGORY, blank=False)
 
     def __str__(self):
-        return f"{self.account.username} {self.category} {self.amount}"
+        return f"{self.account.username} {self.year}年{self.month} {self.category} {self.amount}円"
 
 
 class Expense(AbstractIncome):
@@ -51,4 +51,4 @@ class Expense(AbstractIncome):
     category = models.CharField("カテゴリーを選択", max_length=7, choices=CATEGORY, blank=False)
 
     def __str__(self):
-        return f"{self.account.username} {self.category} {self.amount}"
+        return f"{self.account.username} {self.year}年{self.month} {self.category} {self.amount}円"
