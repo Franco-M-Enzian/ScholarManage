@@ -10,15 +10,16 @@
 <br>
 <h4>ユーザー名：{{ user.username }}</h4>
 <br>
+<a href="{% url 'accounts:profile' user.username %}" class="btn btn-info">プロフィール</a>
+<p></p>
 <form method="post" action="{% url 'accounts:logout' %}">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">ログアウト</button>
 </form>
 <br>
 {% endif %}
-<a href="{% url 'accounts:profile' user.username %}">プロフィール</a>
 <a href="{% url 'finances:expense_list' %}" class="btn btn-secondary">支出一覧</a>
-<a href="{% url 'finances:income_add' %}" class="btn btn-secondary">収入登録</a>
+<a href="{% url 'finances:income_add' %}" class="btn btn-primary">収入登録</a>
 {% for income in incomes %}
 <div class="card" style="width: 18rem;">
     <div class="card-header">
@@ -29,9 +30,9 @@
       <li class="list-group-item">収  入  額：{{ income.amount }}円</li>
     </ul>
   </div>
-<a href="{% url 'finances:income_update' income.pk %}">編集</a>
-<a href="{% url 'finances:income_delete' income.pk %}">削除</a>
+<a href="{% url 'finances:income_update' income.pk %}" class="btn btn-primary">編集</a>
+<a href="{% url 'finances:income_delete' income.pk %}" class="btn btn-danger">削除</a>
 {% empty %}
-<li>まだ収入登録が1件もされていません。</li>
+<p class="alert alert-warning" role="alert">収入登録が一件もありません。</p>
 {% endfor %}
 {% endblock content %}

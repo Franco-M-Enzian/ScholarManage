@@ -11,7 +11,8 @@
         本当にこの支出を削除しますか？：{{ object }}
       </div>
     {{ form }}
-    <input type="submit" value="削除する">
+    <input type="submit" class="btn btn-danger" value="削除する">
 </form>
+<br>
 <a href="{% url 'finances:expense_list' %}" class="btn btn-secondary">戻る</a>
 {% endblock content %}
