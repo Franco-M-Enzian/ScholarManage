@@ -2,18 +2,30 @@
 {% block title %}
 収入を削除
 {% endblock title %}
-{% block header %}
-収入を削除
-{% endblock header %}
 {% block content %}
-<form method="post">{% csrf_token %}
-    <div class="alert alert-danger" role="alert">
-        本当にこの収入を削除しますか？：{{ object }}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h3 class="card-title">収入を削除</h3>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            <div class="alert alert-danger" role="alert">
+              本当にこの収入を削除しますか？：{{ object }}
+            </div>
+            {{ form }}
+            <div class="d-grid gap-2">
+              <input type="submit" class="btn btn-danger" value="削除する">
+              <a href="{% url 'finances:income_list' %}" class="btn btn-secondary">戻る</a>
+            </div>
+          </form>
+        </div>
       </div>
-    {{ form }}
-    <input type="submit" class="btn btn-danger" value="削除する">
-</form>
-<br>
-<a href="{% url 'finances:income_list' %}" class="btn btn-secondary">戻る</a>
+    </div>
+  </div>
+</div>
 {% endblock content %}
 
