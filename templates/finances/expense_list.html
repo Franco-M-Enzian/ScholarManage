@@ -10,28 +10,31 @@
 <br>
 <h4>ユーザー名：{{ user.username }}</h4>
 <br>
-<a href="{% url 'accounts:profile' user.username %}" class="btn btn-info">プロフィール</a>
-<p></p>
-<form method="post" action="{% url 'accounts:logout' %}">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">ログアウト</button>
-</form>
-<br>
+  <a href="{% url 'accounts:profile' user.username %}" class="btn btn-info mb-2">プロフィール</a>
+  <form method="post" action="{% url 'accounts:logout' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger mb-2">ログアウト</button>
+  </form>
 {% endif %}
-<a href="{% url 'finances:income_list' %}" class="btn btn-secondary">収入一覧</a>
-<a href="{% url 'finances:expense_add' %}" class="btn btn-primary">支出登録</a>
+<div class="mb-2">
+  <a href="{% url 'finances:income_list' %}" class="btn btn-secondary">収入一覧</a>
+  <a href="{% url 'finances:expense_add' %}" class="btn btn-primary">支出登録</a>
+</div>
 {% for expense in expenses %}
-<div class="card" style="width: 18rem;">
-    <div class="card-header">
-    {{ expense.year }}年{{ expense.month }}
+<div class="card" style="width: 16rem;">
+  <div class="card-header">
+    <strong>{{ expense.year }}年{{ expense.month }}</strong>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">カテゴリー：{{ expense.category }}</li>
       <li class="list-group-item">収  入  額：{{ expense.amount }}円</li>
     </ul>
   </div>
-<a href="{% url 'finances:expense_update' expense.pk %}" class="btn btn-primary">編集</a>
-<a href="{% url 'finances:expense_delete' expense.pk %}" class="btn btn-danger">削除</a>
+  <div class="mt-2">
+    <a href="{% url 'finances:expense_update' expense.pk %}" class="btn btn-primary">編集</a>
+    <a href="{% url 'finances:expense_delete' expense.pk %}" class="btn btn-danger">削除</a>
+  </div>
+</div>
 {% empty %}
 <p class="alert alert-warning" role="alert">支出登録が一件もありません。</p>
 {% endfor %}
