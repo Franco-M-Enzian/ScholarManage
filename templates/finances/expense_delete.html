@@ -13,8 +13,9 @@
         <div class="card-body">
           <form method="post">
             {% csrf_token %}
-            <div class="alert alert-danger" role="alert">
-              本当にこの支出を削除しますか？：{{ object }}
+            <div class="alert alert-danger text-center" role="alert">
+              <strong>本当にこの収入を削除しますか？</strong>
+              <div>{{ object }}</div>
             </div>
             {{ form }}
             <div class="d-grid gap-2 text-center">
