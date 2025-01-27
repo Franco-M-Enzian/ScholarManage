@@ -29,7 +29,7 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'scholarmanage.onrender.com']
+ALLOWED_HOSTS = ['*', '.vercel.app']
 
 
 # Application definition
@@ -89,9 +89,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 default_dburl = "sqlite:///" + str(BASE_DIR / "db.sqlite3")
 
-DATABASES = {
-    'default': config("DATABASE_URL", default=default_dburl, cast=dburl),
-}
+DATABASES = {}
 
 
 
@@ -130,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
-STATIC_ROOT = str(BASE_DIR / "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
