@@ -15,7 +15,7 @@ ScholarManageは、奨学金を含めた収入と支出を手軽に記録する�
 
 ## ✨ 機能と技術的こだわり
 
-* AbstractBaseUser, Permission Mixinを継承したカスタムユーザーモデル定義
+* AbstractBaseUser, PermissionMixinを継承したカスタムユーザーモデル定義
 * アカウント登録フォームにカスタムウィジェットを追加
 * 抽象基底クラスを使用した他モデルに対する共通フィールドの追加
 * DBに対するアクセス回数を減少させるためのクエリ処理
