@@ -4,7 +4,7 @@
 
 ## 概要
 
-ScholarManageは、奨学金を含めた収入と支出を手軽に記録し、年に一度提出義務のある「奨学金継続届」の提出をスムーズに進めることを目的としたWebアプリです。収入と支出の登録・編集・削除・一覧表示 (CRUD操作) 機能を実装しています。
+ScholarManageは、奨学金を含めた収入と支出を手軽に記録し、年に一度提出義務のある「奨学金継続届」の提出をスムーズに進めることを目的としたWebアプリケーションです。収入と支出の登録・編集・削除・一覧表示 (CRUD操作) 機能や、収入と支出の登録の一覧表示機能を実装しました。
 
 ## 使用技術
 
@@ -30,6 +30,6 @@ ScholarManageは、奨学金を含めた収入と支出を手軽に記録し、�
 * **GitHubリポジトリ:** [https://github.com/smashblooms/ScholarManage](https://github.com/smashblooms/ScholarManage)
 * **デプロイ先URL:** [https://scholarmanage.onrender.com](https://scholarmanage.onrender.com)
 
-## 期間
+## 開発期間
 
 2024年9月8日〜9月15日、2024年12月18日〜12月30日
