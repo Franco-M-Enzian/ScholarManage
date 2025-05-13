@@ -15,7 +15,7 @@
             {% csrf_token %}
             <div class="alert alert-danger text-center" role="alert">
               <strong>本当にこの収入を削除しますか？</strong>
-              <div>{{ object }}</div>
+              <div>{{ income.year }}年{{ income.month }} {{ income.category }} {{ income.amount }}円</div>
             </div>
             {{ form }}
             <div class="d-grid gap-2 text-center">
@@ -23,7 +23,6 @@
               <a href="{% url 'finances:income_list' %}" class="btn btn-secondary">戻る</a>
             </div>
           </form>
-        </div>
       </div>
     </div>
   </div>

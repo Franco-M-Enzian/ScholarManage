@@ -4,6 +4,7 @@ from .models import Income, Expense
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
+
 # Incomeに関するビュー
 class IncomeListView(LoginRequiredMixin, ListView):
     model = Income
@@ -11,7 +12,12 @@ class IncomeListView(LoginRequiredMixin, ListView):
     template_name = "finances/income_list.html"
 
     def get_queryset(self):
-        return Income.objects.select_related("account").filter(account=self.request.user).all()
+        return (
+            Income.objects.select_related("account")
+            .filter(account=self.request.user)
+            .all()
+        )
+
 
 class IncomeAddView(LoginRequiredMixin, CreateView):
     model = Income
@@ -33,6 +39,7 @@ class IncomeUpdateView(LoginRequiredMixin, UpdateView):
 
 class IncomeDeleteView(LoginRequiredMixin, DeleteView):
     model = Income
+    context_object_name = "income"
     template_name = "finances/income_delete.html"
     success_url = reverse_lazy(settings.LOGIN_REDIRECT_URL)
 
@@ -44,7 +51,11 @@ class ExpenseListView(LoginRequiredMixin, ListView):
     template_name = "finances/expense_list.html"
 
     def get_queryset(self):
-        return Expense.objects.select_related("account").filter(account=self.request.user).all()
+        return (
+            Expense.objects.select_related("account")
+            .filter(account=self.request.user)
+            .all()
+        )
 
 
 class ExpenseAddView(LoginRequiredMixin, CreateView):
@@ -67,6 +78,6 @@ class ExpenseUpdateView(LoginRequiredMixin, UpdateView):
 
 class ExpenseDeleteView(LoginRequiredMixin, DeleteView):
     model = Expense
+    context_object_name = "expense"
     template_name = "finances/expense_delete.html"
     success_url = reverse_lazy("finances:expense_list")
-    
